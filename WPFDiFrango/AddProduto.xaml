@@ -1,0 +1,15 @@
+﻿<Window x:Class="WPFDiFrango.AddProduto"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFDiFrango"
+        mc:Ignorable="d"
+        Title="AddProduto" Height="500" Width="200"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <TextBox x:Name="caixa" Text="" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="23" TextChanged="caixa_TextChanged" KeyDown="TextEnter" />
+        <ListBox x:Name="combo" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,23,0,0" KeyDown="ListEnter" SelectionChanged="combo_SelectionChanged" />
+
+    </Grid>
+</Window>

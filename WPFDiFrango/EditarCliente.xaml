@@ -1,0 +1,36 @@
+﻿<Window x:Class="WPFDiFrango.EditarCliente"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFDiFrango"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="EditarCliente" Height="450" Width="880"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Editar Cliente" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Histórico de Pedidos" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Margin="0,55,0,0"/>
+        
+        <Label Content="Id" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,25,0,0" />
+        <TextBox x:Name="Id" Text="" MaxLength="15" TextWrapping="Wrap" Width="35" Height="19" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,28,0,0" IsReadOnly="True"/>
+        <Label Content="Telefone" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="75,25,0,0" />
+        <xctk:MaskedTextBox Mask="(00) 00000-0000" x:Name="Telefone" Text="" MaxLength="15" TextWrapping="Wrap" Width="100" Height="19" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="130,28,0,0"/>
+        <Label Content="Nome" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,25,0,0" />
+        <TextBox x:Name="Nome" TextWrapping="Wrap" Text="" Width="200" Height="19"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="285,28,0,0"/>
+        <Label Content="Endereço" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="495,25,0,0" />
+        <TextBox x:Name="Endereco" TextWrapping="Wrap" Text="" Width="200" Height="19" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="555,28,0,0"/>
+        <Button Content="Editar Cliente" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="765,27,0,0" FontSize="13" Width="90" Click="Button_Click"/>
+
+        <DataGrid x:Name="pedidos" d:ItemsSource="{d:SampleData ItemCount=5}" AutoGenerateColumns="False" Grid.RowSpan="2" CanUserAddRows="False" Margin="0,80,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="Id" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding DataHoraPedido, StringFormat='dd/MM/yy HH:mm'}" Header="DataHoraPedido" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding ProdutosToString}" Header="Produtos" IsReadOnly="True"/>
+                <DataGridCheckBoxColumn Binding="{Binding Marcado}" Header="Marcado"  IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding DataHoraCriado, StringFormat='dd/MM/yy HH:mm'}" Header="DataHoraCriado" IsReadOnly="True"/>
+                <DataGridCheckBoxColumn Binding="{Binding Deletado}" Header="Deletado"  IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
